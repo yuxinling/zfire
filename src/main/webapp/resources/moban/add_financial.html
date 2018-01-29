@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Matrix Admin</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/matrix-style2.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css"/>
+<style>
+	.control-group .controls label{
+		display:inline-block;
+	}
+</style>
+</head>
+<body>
+
+<div id="content">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="widget-box">
+      <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+        <h5>新建企业客户</h5>
+      </div>
+      <div class="widget-content">
+      
+       <form id="addOrgForm">
+      
+        <div class="control-group controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">证件类型* :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdIdTp" name="idTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">证件号码* :</label>
+            <input type="text" id="idNum" name="idNum" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">证件有效期* :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <div  data-date="12-02-2012" class="input-append date datepicker" style="padding: 0px;">
+                  <input name="expiryDt" type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                  <span class="add-on"><i class="icon-th"></i></span> </div>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">客户名称* :</label>
+            <input type="text" name="address" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">客户状态 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdClientStTp" name="clientStTpCd"style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">客户分类 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdClientCatTp" name="clientCatTpCd"style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">成立日期* :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <div  data-date="12-02-2012" class="input-append date datepicker" style="padding: 0px;">
+                  <input name="establishedDt" type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                  <span class="add-on"><i class="icon-th"></i></span> </div>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">法人证件类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="idTpCd01" name="idTpCd01"style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">法人证件号码 :</label>
+            <input type="text" name="idNum01" id="idNum01" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">法人中文名 :</label>
+            <input type="text" name="chineseName01" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">财务联系人中文名 :</label>
+            <input type="text" name="chineseName02" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">财务联系人证件类型* :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="idTpCd01" name="idTpCd01" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">财务联系人证件号码 :</label>
+            <input type="text" name="idNum02" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">法人手机号码 :</label>
+            <input type="text" name="mobile01" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">财务联系人手机号码 :</label>
+            <input type="text" name="mobile02" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">开拓人(员工编号) :</label>
+            <input type="text" name="developEmpNo" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">通讯语言 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select	s-list="cdLangTp" name="langTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">常驻国家 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select	s-list="cdCountryTp" name="premCountryTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">客户状态 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select	s-list="cdResidentTp" name="residentTpCd" style="width: 100%"></select>
+            </div>
+       	</div>       	
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">离岸客户标识 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="offshoreInd" name="offshoreInd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">注册登记日期 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <div  data-date="12-02-2012" class="input-append date datepicker" style="padding: 0px;">
+                  <input name="establishedDt" type="text" value="12-02-2012"  data-date-format="mm-dd-yyyy" class="span11" >
+                  <span class="add-on"><i class="icon-th"></i></span> </div>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">企业类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdOrgTp" name="orgTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">行业类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdIndustryTp" name="industryTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+       	
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">经济类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdEconomicTp" name="economicTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">注册国家 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdRgstCountryTp" name="rgstCountryTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">注册地区 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdRgstZoneTp" name="rgstZoneTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">企业性质 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdOwnershipTp" name="ownershipTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">上市类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdListedTp" name="listedTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">企业规模 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdMiitScaleTp" name="miitScaleTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">地址类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdAdrUsageTp" name="adrUsageTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">邮政编码 :</label>
+            <input type="text" name="postCode" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">具体地址 :</label>
+            <input type="text" name="postCode" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">所属地区 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdRegionTp" name="regionTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">所属经济区域 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdEconomicRegionTp" name="economicRegionTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">联系类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdCtcmthTp" name="ctcmthTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">联系信息 :</label>
+            <input type="text" name="ctcmthNum" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">上级主管部门 :</label>
+            <input type="text" name="spvisorDepartment" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">特殊经济区代码 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdSpclEconomicTp" name="spclEconomicTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">贷款卡号 :</label>
+            <input type="text" name="loanCardNo" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">贷款卡有效标识 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="loanValidInd" name="loanValidInd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">经营状态 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdBusinessStTp" name="businessStTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">经营范围 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="businessScope" name="businessScope" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">员工人数 :</label>
+            <input type="text" name="staffNum" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">忠诚度得分 :</label>
+            <input type="text" name="loyalScore" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">违约概率 :</label>
+            <input type="text" name="defaultPb" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">纳税人类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdTaxpayerTp" name="taxpayerTpCd" style="width: 100%"></select>
+            </div>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">税务登记银行账号 :</label>
+            <input type="text" name="taxregAcctNo" class="span4 m-wrap" style="margin-left: 10px;"/>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">税务登记银行 :</label>
+            <input type="text" name="taxregAcctBankName" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+        <div class="controls controls-row">
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">货币类型 :</label>
+            <div class="span4 m-wrap" style="margin-left: 10px;">
+                <select s-list="cdCurrencyTp" name="currencyTpCd" style="width: 100%"></select>
+            </div>
+        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">注册资金 :</label>
+            <input type="text" name="registerAmt" class="span4 m-wrap" style="margin-left: 10px;"/>
+       	</div>
+    
+       	
+        <div class="form-actions" style="text-align: center;">
+            <button id="saveBtn" type="button" class="btn btn-success">保存</button>
+            <button type="submit" class="btn btn-primary">取消</button>
+        </div>
+        
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap-datepicker.js"></script> 
+<script src="js/select2.min.js"></script> 
+<script src="js/form.js"></script>
+<script src="js/add_financial.js"></script>
+<script>
+</script>
+</body>
+</html>

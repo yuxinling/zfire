@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysUser" table="sys_user" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="16">
+                <comment>&#211;&#195;&#187;&#167;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="32">
+                <comment>&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="cname" type="string">
+            <column name="cname" length="16">
+                <comment>&#214;&#208;&#206;&#196;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="isuse" type="java.lang.Integer">
+            <column name="isuse">
+                <comment>&#202;&#199;&#183;&#241;&#188;&#164;&#187;&#238;</comment>
+            </column>
+        </property>
+        <property name="iscan" type="java.lang.Integer">
+            <column name="iscan">
+                <comment>&#202;&#199;&#183;&#241;&#198;&#244;&#211;&#195;</comment>
+            </column>
+        </property>
+        <property name="orgzId" type="string">
+            <column name="orgz_id" length="32">
+                <comment>&#215;&#233;&#214;&#175;&#187;&#250;&#185;&#185;Id</comment>
+            </column>
+        </property>
+        <property name="delFlag" type="java.lang.Integer">
+            <column name="del_flag">
+                <comment>&#201;&#190;&#179;&#253;&#177;&#234;&#214;&#190;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

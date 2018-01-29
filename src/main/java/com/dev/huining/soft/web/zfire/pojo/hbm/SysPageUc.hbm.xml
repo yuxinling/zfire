@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysPageUc" table="sys_page_uc" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="pageId" type="string">
+            <column name="page_id" length="32">
+                <comment>&#210;&#179;&#195;&#230;&#197;&#228;&#214;&#195;&#181;&#196;Id</comment>
+            </column>
+        </property>
+        <property name="ucId" type="string">
+            <column name="uc_id" length="32">
+                <comment>uc&#197;&#228;&#214;&#195;&#181;&#196;Id</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysLayout" table="sys_layout" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="lcode" type="string">
+            <column name="lcode" length="12">
+                <comment>layout&#181;&#196;code,&#200;&#231;main.html&#214;&#208;&#181;&#196;main</comment>
+            </column>
+        </property>
+        <property name="module" type="string">
+            <column name="module" length="12">
+                <comment>&#196;&#163;&#191;&#233;&#181;&#196;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="100">
+                <comment>&#177;&#184;&#215;&#162;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

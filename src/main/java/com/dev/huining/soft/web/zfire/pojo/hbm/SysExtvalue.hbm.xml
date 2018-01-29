@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysExtvalue" table="sys_extvalue" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="dkey" type="string">
+            <column name="dkey" length="30" />
+        </property>
+        <property name="dvalue" type="string">
+            <column name="dvalue" length="50" />
+        </property>
+        <property name="iscan" type="java.lang.Character">
+            <column name="iscan" length="1" />
+        </property>
+        <property name="relId" type="string">
+            <column name="rel_id" length="32" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+    </class>
+</hibernate-mapping>

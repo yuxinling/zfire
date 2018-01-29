@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysCvscfg" table="sys_cvscfg" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="ucId" type="string">
+            <column name="uc_id" length="32">
+                <comment>&#182;&#212;&#211;&#166;&#181;&#196;UC&#181;&#196;id</comment>
+            </column>
+        </property>
+        <property name="flag" type="java.lang.Integer">
+            <column name="flag">
+                <comment>
+                &#202;&#228;&#200;&#235;&#202;&#228;&#179;&#246;&#181;&#196;&#177;&#234;&#214;&#190;&#163;&#186;1-&#202;&#228;&#200;&#235;&#163;&#172;2-&#202;&#228;&#179;&#246;</comment>
+            </column>
+        </property>
+        <property name="property" type="string">
+            <column name="property" length="30">
+                <comment>&#182;&#212;&#211;&#166;java&#214;&#208;&#181;&#196;&#202;&#244;&#208;&#212;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="field" type="string">
+            <column name="field" length="32">
+                <comment>&#182;&#212;&#211;&#166;&#202;&#253;&#190;&#221;&#191;&#226;&#181;&#196;&#215;&#214;&#182;&#206;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="fieldLen" type="java.lang.Integer">
+            <column name="field_len">
+                <comment>&#215;&#214;&#182;&#206;&#181;&#196;&#202;&#253;&#190;&#221;&#179;&#164;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="fieldType" type="java.lang.Integer">
+            <column name="field_type">
+                <comment>&#215;&#214;&#182;&#206;&#181;&#196;&#202;&#253;&#190;&#221;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="javaType" type="string">
+            <column name="java_type" length="30">
+                <comment>java&#181;&#196;&#202;&#244;&#208;&#212;&#181;&#196;&#215;&#214;&#182;&#206;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="inType" type="java.lang.Integer">
+            <column name="in_type">
+                <comment>
+                &#182;&#212;&#211;&#218;&#202;&#228;&#200;&#235;&#181;&#196;&#202;&#244;&#208;&#212;&#163;&#172;1-&#198;&#213;&#205;&#168;&#163;&#172;2-&#178;&#233;&#209;&#175;&#204;&#245;&#188;&#254;&#163;&#172;3-&#180;&#171;&#214;&#181;&#177;&#228;&#193;&#191;</comment>
+            </column>
+        </property>
+        <property name="resType" type="java.lang.Integer">
+            <column name="res_type">
+                <comment>&#178;&#233;&#209;&#175;&#177;&#237;&#180;&#239;&#202;&#189;&#163;&#172;eg&#163;&#186;=&#163;&#172;&lt;&gt; and so on</comment>
+            </column>
+        </property>
+        <property name="exist" type="string">
+            <column name="exist" length="500">
+                <comment>sql&#211;&#239;&#190;&#228;&#214;&#208;&#182;&#212;&#211;&#166;&#181;&#196;exist&#211;&#239;&#190;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

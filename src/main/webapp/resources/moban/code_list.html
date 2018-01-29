@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Matrix Admin</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/matrix-style2.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+<style>
+.control-group .controls label {
+	display: inline-block;
+}
+</style>
+</head>
+<body>
+	<div id="content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-align-justify"></i></span>
+						<h5>授权信息查询</h5>
+					</div>
+						<!-- 授权信息 开始-->
+			            <div class="widget-box">
+						<div class="control-group controls-row">
+							<label class="span2 m-wrap" style="text-align: right; padding-top: 6px;">代&nbsp;&nbsp;码&nbsp;&nbsp;类&nbsp;&nbsp;型 :</label>
+							<div class="span4 m-wrap" style="margin-left: 10px;">
+								<select id="tpCdType" name="tpCdType" style="width: 100%"></select>
+							</div>
+							<div class="span6 m-wrap" style="margin-left: 30px;">
+								<button id="queryBtn" type="button" class="btn btn-success">查询</button>
+							</div>
+						</div>
+
+						<div class="widget-content nopadding">
+				            <table class="table table-bordered table-striped">
+				              <thead>
+                                 <tr>
+                                     <th>语言类型</th>
+                                     <th>类型</th>
+                                     <th>名称</th>
+                                     <th>多选标识</th>
+                                     <th>过期时间</th>
+                                     <th>操作</th>
+                                 </tr>
+				              </thead>
+				              <tbody id="code-list">
+            			      <script id="code-template" type="text/x-handlebars-template">
+			           		  {{#each this}}
+						        <tr class="odd gradeX">
+						         	<td>{{@langTpCd}}</td>
+							        <td>{{cdTp}}</td>
+							        <td>{{name}}</td>
+							        <td>{{multipleInd}}</td>
+							        <td>{{expiryDt}}</td>
+							        <td><button class="btn btn-info btn-mini">更新</button></td>
+							    </tr> 
+							  {{/each}} 
+							  </script>
+				              </tbody>
+				            </table>
+				          </div>
+				        </div>
+		            	<!-- 授权信息 结束-->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/handlebars-v4.0.8.js"></script>
+<script src="js/code_list.js"></script>
+</html>

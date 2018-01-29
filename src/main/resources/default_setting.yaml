@@ -1,0 +1,23 @@
+--- !com.dev.huining.soft.web.zfire.dto.configuration.ParamConfiguration
+#default_parameters 的参数名: ucname,page,view
+  defaultParams:
+    #是否需要格式化的标记（字典，日期，小数等）
+    formatflag: 1
+    #是否需要分页
+    pageflag: 1
+    #总共的记录数
+    totalrow: 0
+    #当前的页码数
+    pagenumber: 1
+    #每页行数 默认每页的数据条数
+    pagerow: 20
+    #默认的视图
+    viewflag: DEFAULT
+    params: {}
+
+--- !com.dev.huining.soft.web.zfire.dto.configuration.ModuleConfiguration
+  moduleCodes:
+    frame: 00
+    main: 01
+    app: 02
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!--<definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">-->
+        <!--<put-attribute name="title" value=""/>-->
+        <!--<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>-->
+        <!--<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"/>-->
+        <!--<put-attribute name="body" value=""/>-->
+        <!--<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>-->
+    <!--</definition>-->
+
+    <!--<definition name="contact" extends="base.definition">-->
+        <!--<put-attribute name="title" value="Contact Manager"/>-->
+        <!--<put-attribute name="body" value="body"/>-->
+    <!--</definition>-->
+
+    <definition name="baselayout" template="/WEB-INF/jsp/tiles/baselayout.jsp">
+        <put-attribute name="title" value="zfire"/>
+        <put-attribute name="topbar" value="/WEB-INF/jsp/tiles/topbar.jsp"/>
+        <put-attribute name="left" value="/WEB-INF/jsp/tiles/left.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/jsp/tiles/main.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/tiles/bottom.jsp"/>
+    </definition>
+    
+    <definition name="iframelayout" template="/WEB-INF/jsp/tiles/iframe_layout.jsp">
+        <put-attribute name="title" value="zfire"/>
+        <put-attribute name="topbar" value="/WEB-INF/jsp/tiles/topbar.jsp"/>
+        <put-attribute name="left" value="/WEB-INF/jsp/tiles/left.jsp"/>
+        <put-attribute name="bottom" value="/WEB-INF/jsp/tiles/bottom.jsp"/>
+    </definition>
+    
+    <definition name="main" template="/WEB-INF/jsp/tiles/iframe_main.jsp" />
+</tiles-definitions>

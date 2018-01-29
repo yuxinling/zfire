@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Matrix Admin</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="css/datepicker.css" />
+<link rel="stylesheet" href="css/select2.css" />
+<link rel="stylesheet" href="css/matrix-style2.css" />
+<link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+<style>
+.control-group .controls label {
+	display: inline-block;
+}
+
+.table-input {
+	margin: 0px;
+	padding: 7px 0px 7px 6px;
+	width: -webkit-fill-available;
+}
+</style>
+</head>
+<body>
+	<div id="content">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-align-justify"></i></span>
+						<h5>授权信息查询</h5>
+					</div>
+						<!-- 授权信息 开始-->
+			            <div class="widget-box">
+				          <div class="widget-content nopadding">
+				            <table class="table table-bordered table-striped">
+				              <thead>
+				                <tr>
+                                    <th>序号</th>
+                                    <th>参数归属</th>
+                                    <th>参数名称</th>
+                                    <th>参数值</th>
+                                    <th>参数描述</th>
+                                    <th>操作</th>
+				                </tr>
+				              </thead>
+				              <tbody id="sys-config">
+            			      <script id="sys-template" type="text/x-handlebars-template">
+			           		  {{#each this}}
+						        <tr class="odd gradeX" id="row-{{@index}}">
+						         	<td><span class="badge">{{@index}}</span></td>
+							        <td style="padding: 0px;vertical-align: middle;">
+							        	<input type="text" name="pramsType" value="{{pramsType}}" readonly="readonly" style="margin: 0px;"/>
+							        </td>
+							        <td style="padding: 0px;vertical-align: middle;">
+							        	<input type="text" name="pramsKey" value="{{pramsKey}}" readonly="readonly" style="margin: 0px;"/>
+							        </td>
+							        <td style="padding: 0px;vertical-align: middle;text-align:left;">
+										{{#if uiOptions}}
+										<select name="pramsValue" disabled="disabled" style="margin: 0px;">
+											{{#each uiOptions}}
+												<option value="{{optionsValue}}">{{optionsValue}}-{{optionsName}}</option>
+											{{/each}}
+										</select>
+										{{else}}
+							        		<input type="text" name="pramsValue" value="{{pramsValue}}" readonly="readonly" style="margin: 0px;"/>
+							  			{{/if}} 
+									</td>
+							        <td style="padding: 0px;vertical-align: middle;">
+							        	<input type="text" name="pramsDesc" value="{{pramsDesc}}" readonly="readonly" style="margin: 0px;"/>
+							        </td>
+							        <td style="padding: 3px;"><button class="btn btn-info" type="button" onclick="editRow(this,'{{@index}}')">更新</button></td>
+							    </tr> 
+							  {{/each}} 
+							  </script>
+				              </tbody>
+				            </table>
+				          </div>
+				        </div>
+		            	<!-- 授权信息 结束-->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/handlebars-v4.0.8.js"></script>
+<script src="js/form.js"></script>
+<script src="js/sys_config.js"></script>
+</html>

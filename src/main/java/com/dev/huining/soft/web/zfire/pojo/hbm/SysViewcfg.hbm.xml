@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-23 20:27:50 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dev.huining.soft.web.zfire.pojo.entity.SysViewcfg" table="sys_viewcfg" catalog="zfire">
+        <id name="id" type="string">
+            <column name="id" length="32" />
+            <generator class="assigned" />
+        </id>
+        <property name="ucId" type="string">
+            <column name="uc_id" length="32">
+                <comment>&#182;&#212;&#211;&#166;&#181;&#196;UC&#181;&#196;id</comment>
+            </column>
+        </property>
+        <property name="cvsId" type="string">
+            <column name="cvs_id" length="32">
+                <comment>&#182;&#212;&#211;&#166;&#181;&#196;cvs&#181;&#196;id,&#211;&#195;&#211;&#218;&#187;&#241;&#200;&#161;property</comment>
+            </column>
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level">
+                <comment>
+                &#207;&#212;&#202;&#190;&#181;&#196;&#188;&#182;&#177;&#240;&#163;&#186;0-&#178;&#187;&#207;&#212;&#202;&#190;&#163;&#172;1-&#207;&#212;&#202;&#190;&#163;&#172;2-&#207;&#234;&#207;&#184;&#207;&#212;&#202;&#190;</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="30">
+                <comment>&#177;&#237;&#205;&#183;&#181;&#196;title</comment>
+            </column>
+        </property>
+        <property name="dictNo" type="string">
+            <column name="dict_no" length="12">
+                <comment>&#215;&#214;&#181;&#228;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="hrefType" type="java.lang.Integer">
+            <column name="href_type">
+                <comment>
+                &#193;&#180;&#189;&#211;&#192;&#224;&#208;&#205;&#163;&#186;1-&#181;&#175;&#179;&#246;&#163;&#172;2-&#210;&#179;&#195;&#230;&#204;&#248;&#215;&#170;</comment>
+            </column>
+        </property>
+        <property name="href" type="string">
+            <column name="href" length="200">
+                <comment>href&#193;&#180;&#189;&#211;</comment>
+            </column>
+        </property>
+        <property name="dataType" type="java.lang.Integer">
+            <column name="data_type">
+                <comment>
+                &#207;&#212;&#202;&#190;&#181;&#196;&#202;&#253;&#190;&#221;&#192;&#224;&#208;&#205;&#163;&#186;1-&#215;&#214;&#183;&#251;&#180;&#174;2-&#213;&#251;&#202;&#253;3-&#208;&#161;&#202;&#253;4-&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="formate" type="string">
+            <column name="formate" length="30">
+                <comment>
+                &#182;&#212;&#210;&#212;&#201;&#207;&#181;&#196;&#200;&#231;&#208;&#161;&#202;&#253;&#161;&#162;&#200;&#213;&#198;&#218;&#184;&#248;&#182;&#168;&#184;&#241;&#202;&#189;&#187;&#175;&#181;&#196;regex</comment>
+            </column>
+        </property>
+        <property name="sort" type="java.lang.Integer">
+            <column name="sort">
+                <comment>&#197;&#197;&#208;&#242;</comment>
+            </column>
+        </property>
+        <property name="align" type="string">
+            <column name="align" length="12">
+                <comment>&#182;&#212;&#198;&#235;&#163;&#186;right&#163;&#172;left&#163;&#172;center</comment>
+            </column>
+        </property>
+        <property name="minWidth" type="string">
+            <column name="min_width" length="12">
+                <comment>&#215;&#238;&#208;&#161;&#191;&#237;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="width" type="string">
+            <column name="width" length="12">
+                <comment>&#191;&#237;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="maxWidth" type="string">
+            <column name="max_width" length="12">
+                <comment>&#177;&#237;&#184;&#241;&#207;&#212;&#202;&#190;&#202;&#177;&#215;&#238;&#180;&#243;&#191;&#237;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="viewFlag" type="string">
+            <column name="view_flag" length="30">
+                <comment>&#207;&#212;&#202;&#190;&#181;&#196;&#202;&#211;&#205;&#188;&#163;&#186;&#196;&#172;&#200;&#207;DEFAULT</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
