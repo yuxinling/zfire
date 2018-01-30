@@ -6,124 +6,83 @@
     <h4 id="myModalLabel">添加VIEW配置</h4>
 </div>
 <div class="pop_modal_body add_page_style" >
-    <form id="editViewFrom" class="form-horizontal">
-        <div class="inline-columns-three">
-            <div class="control-group">
-                <input type="hidden" id="id" name="id"  value="${viewCfg.id}">
-                <input type="hidden" id="ucId" name="ucId"  value="${params['ucId']}">
-                <label class="control-label" for="cvsId" >属性</label>
-                <div class="controls">
-                    <select id="cvsId" name="cvsId">
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<form id="editViewFrom">
+            <input type="hidden" id="id" name="id"  value="${viewCfg.id}">
+            <input type="hidden" id="ucId" name="ucId"  value="${params['ucId']}">
+			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">属性 :</label>
+				<div class="span2 m-wrap" style="margin-left: 10px;">
+					<select id="cvsId" name="cvsId" style="width: 100%" required>
                         <option value="">请选择</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="title" >标题</label>
-                <div class="controls">
-                    <input type="text" id="title" placeholder="标题" name="title" value="${viewCfg.title}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="level" >显示级别</label>
-                <div class="controls">
-                    <select id="level" name="level">
+					</select>
+				</div>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">标题 :</label>
+				<input type="text" id="title" name="title" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.title}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">显示级别 :</label>
+				<div class="span2 m-wrap" style="margin-left: 10px;">
+                    <select id="level" name="level" style="width: 100%">
                         <option value="0">不显示</option>
                         <option value="1">显示</option>
                         <option value="2">详细显示</option>
                     </select>
                 </div>
-            </div>
-        </div>
-        <div class="inline-columns-three">
-            <div class="control-group">
-                <label class="control-label" for="dataType" >数据类型</label>
-                <div class="controls">
-                    <select id="dataType" name="dataType">
+			</div>
+			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">数据类型 :</label>
+				<div class="span2 m-wrap" style="margin-left: 10px;">
+					<select id="dataType" name="dataType" style="width: 100%" required>
                         <option value="">请选择</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="formate" >格式</label>
-                <div class="controls">
-                    <input type="text" id="formate" placeholder="格式" name="formate" value="${viewCfg.formate}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="dictNo" >字典编码</label>
-                <div class="controls">
-                    <input type="text" id="dictNo" placeholder="字典编码" name="dictNo" value="${viewCfg.dictNo}">
-                </div>
-            </div>
-        </div>
-
-        <div class="inline-columns-three">
-            <div class="control-group">
-                <label class="control-label" for="hrefType" >链接类型</label>
-                <div class="controls">
-                    <select id="hrefType" name="hrefType">
-                        <option value="">请选择</option>
+					</select>
+				</div>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">格式 :</label>
+				<input type="text" id="formate" name="formate" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.formate}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">字典编码 :</label>
+				<input type="text" id="dictNo" name="dictNo" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.dictNo}" required/>
+			</div>
+			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">链接类型 :</label>
+				<div class="span2 m-wrap" style="margin-left: 10px;">
+					<select id="hrefType" name="hrefType" style="width: 100%" required>
+                    	<option value="">请选择</option>
                         <option value="1">弹出</option>
                         <option value="2">跳转</option>
                         <option value="3">新页面</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group" style="width: 66.66%">
-                <label class="control-label" for="href" >链接</label>
-                <div class="controls">
-                    <input type="text" style="width: 91%" id="href" placeholder="页面" name="href" value="${viewCfg.href}">
-                </div>
-            </div>
-        </div>
-
-        <div class="inline-columns-three">
-            <div class="control-group">
-                <label class="control-label" for="width" >宽度</label>
-                <div class="controls">
-                    <input type="text" id="width" placeholder="width" name="width" value="${viewCfg.width}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="maxWidth" >最大宽度</label>
-                <div class="controls">
-                    <input type="text" id="maxWidth" placeholder="max-width" name="maxWidth" value="${viewCfg.maxWidth}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="minWidth" >最小宽度</label>
-                <div class="controls">
-                    <input type="text" id="minWidth" placeholder="min-width" name="minWidth" value="${viewCfg.minWidth}">
-                </div>
-            </div>
-        </div>
-
-        <div class="inline-columns-three">
-            <div class="control-group">
-                <label class="control-label" for="align" >对齐</label>
-                <div class="controls">
-                    <select id="align" name="align">
+					</select>
+				</div>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">链接 :</label>
+				<div class="span6 m-wrap" style="margin-left: 10px;padding-right: 20px;">
+					<input type="text" id="href" name="href" style="width: 100%" value="${viewCfg.href}" required/>
+				</div>
+			</div>
+			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">宽度 :</label>
+				<input type="text" id="width" name="width" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.width}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">最大宽度 :</label>
+				<input type="text" id="maxWidth" name="maxWidth" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.maxWidth}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">最小宽度 :</label>
+				<input type="text" id="minWidth" name="minWidth" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.minWidth}" required/>
+			</div>
+			
+			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">对齐 :</label>
+				<div class="span2 m-wrap" style="margin-left: 10px;">
+					<select id="align" name="align" style="width: 100%" required>
                         <option value="left">左对齐</option>
                         <option value="center">中间对齐</option>
                         <option value="right">右对齐</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="sort" >排序</label>
-                <div class="controls">
-                    <input type="text" id="sort" placeholder="排序" name="sort" value="${viewCfg.sort}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="viewFlag" >视图</label>
-                <div class="controls">
-                    <input type="text" id="viewFlag" placeholder="视图" name="viewFlag" value="${viewCfg.viewFlag}">
-                </div>
-            </div>
-        </div>
-    </form>
+					</select>
+				</div>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">排序 :</label>
+				<input type="text" id="sort" name="sort" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.sort}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">视图 :</label>
+				<input type="text" id="viewFlag" name="viewFlag" class="span2 m-wrap" style="margin-left: 10px;" value="${viewCfg.viewFlag}" required/>
+			</div>
+		</form>
+	</div>
+</div>
 </div>
 <div class="modal-footer" >
     <button class="btn" onclick="PoupWindows.close()">取消</button>

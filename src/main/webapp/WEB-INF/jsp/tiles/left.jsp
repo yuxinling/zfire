@@ -9,7 +9,7 @@
 </tiles:putListAttribute>
 <tiles:importAttribute name="pages" />
 <c:forEach var="page" items="${pages}">
-    <tiles:insertAttribute value="${page}" flush="true" />
+    <tiles:insertAttribute value="${page}" />
 </c:forEach>
 
 <!--sidebar-menu-->

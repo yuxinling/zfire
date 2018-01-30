@@ -6,21 +6,8 @@
 <html lang="en">
 <head>
     <title>zfire</title>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/resources/moban/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/resources/moban/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="/resources/moban/css/matrix-style2.css" />
-    <link rel="stylesheet" href="/resources/moban/css/matrix-media.css" />
-    <link rel="stylesheet" href="/resources/moban/font-awesome/css/font-awesome.css"/>
-
-	<script src="/resources/moban/js/excanvas.min.js"></script> 
-    <script src="/resources/moban/js/jquery-1.7.1.min.js"></script>
-    <script src="/resources/moban/js/jquery.ui.custom.js"></script> 
-    <script src="/resources/moban/js/bootstrap.min.js"></script> 
-    <script src="/resources/moban/js/nicescroll/jquery.nicescroll.min.js"></script> 
-    <script src="/resources/moban/js/zfire.js"></script> 
-    <script src="/resources/moban/js/jquery.dataTables.min.js"></script> 
+    <script src="/resources/js/vender/zfire.js"></script> 
 </head>
 <body>
 	<div><tiles:insertAttribute name="topbar"/></div>
@@ -60,7 +47,7 @@
 	//初始化相关元素高度
 	function init(){
 	    $("body").height($(window).height()-80);
-	    //$("#main-content").height($(window).height()-60);
+	    $("#main-content").height($(window).height()-60);
 	   // $("#sidebar").height($(window).height()-50);
 	}
 	
