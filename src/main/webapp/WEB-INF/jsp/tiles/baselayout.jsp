@@ -7,6 +7,9 @@
 <head>
     <title>zfire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+    
     <script src="/resources/js/vender/zfire.js"></script> 
 </head>
 <body>
@@ -47,8 +50,8 @@
 	//初始化相关元素高度
 	function init(){
 	    $("body").height($(window).height()-80);
-	    $("#main-content").height($(window).height()-60);
-	   // $("#sidebar").height($(window).height()-50);
+	    //$("#main-content").height($(window).height()-60);
+	    //$("#sidebar").height($(window).height()-50);
 	}
 	
 	$(function(){

@@ -160,9 +160,12 @@
     //分页处理
     $(function () {
     	$("#table-${pageCfg.id}").dataTable({
-    		"bJQueryUI": true,
+    		"bJQueryUI": false,
     		"sPaginationType": "full_numbers",
+    		"searching": false,
     		"sDom": '<""l>t<"F"fp>',
+    		"bLengthChange": false, //显示每页大小的下拉框（显示一个每页长度的选择条（需要分页器支持））
+    		"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // 定义每页显示数据数量
     		"oLanguage": {
     			"sLengthMenu": "每页显示 _MENU_ 条记录",
     			"sZeroRecords": "抱歉， 没有找到",
@@ -177,7 +180,7 @@
     			}
     		}
     	});
-    });
+    }); 
 </script>
 
 <style>

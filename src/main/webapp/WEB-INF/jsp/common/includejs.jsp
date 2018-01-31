@@ -16,20 +16,20 @@
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css"/>');
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/frame-style.css"/>');
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/frame-media.css"/>');
-	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/font-awesome/css/font-awesome.css"/>');
-	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/styles.css"/>');
+	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/font-awesome/css/font-awesome.css"/>'); 
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/js/lib/select2/select2.css"/>');
+	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/jquery.dataTables.min.css"/>');
+	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/styles.css"/>');
 
-    document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery-1.8.1.js"/><\/script>');
     <%--document.writeln('<script type="text/javascript" src="/resources/js/lib/bootstrap.min.js"><\/script>');--%>
+    document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery-1.8.1.js"/><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/lib/bootstrap.js"><\/script>');
-    document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery.dataTables.min.js"><\/script>');
+    document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery.dataTables.min-1.10.16.js"><\/script>');
     
     document.writeln('<script type="text/javascript" src="/resources/js/vender/listlayout.js"><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/vender/common.js"><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/vender/form.js"><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/vender/page_form.js"><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/lib/select2/select2.js"><\/script>');
-	
 
 </script>
