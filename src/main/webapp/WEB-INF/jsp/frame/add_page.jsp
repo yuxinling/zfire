@@ -5,73 +5,51 @@
     <button type="button" class="close">×</button>
     <h4 id="myModalLabel">添加页面</h4>
 </div>
-<div class="pop_modal_body add_page_style" >
-    <form id="addPageForm" class="form-horizontal">
-        <div class="inline-columns-tow">
-            <div class="control-group">
-                <label class="control-label" for="pcode">编码</label>
-                <div class="controls">
-                    <input type="hidden" id="id" name="id"  value="${pageCfg.id}">
-                    <input type="text" id="pcode" placeholder="编码" name="pcode" value="${pageCfg.pcode}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="module">模块</label>
-                <div class="controls">
-                    <input type="text" id="module" placeholder="模块" name="module" value="${pageCfg.module}">
-                </div>
-            </div>
-        </div>
-        <div class="inline-columns-tow">
-            <div class="control-group">
-                <label class="control-label" for="cname">中文名称</label>
-                <div class="controls">
-                    <input type="text" id="cname" placeholder="中文名称" name="cname" value="${pageCfg.cname}">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="ename">英文名称</label>
-                <div class="controls">
-                    <input type="text" id="ename" placeholder="英文名称" name="ename" value="${pageCfg.ename}">
-                </div>
-            </div>
-        </div>
-        <div class="inline-columns-one">
-            <div class="control-group">
-                <label class="control-label" for="listHeader" >列表头</label>
-                <div class="controls">
-                    <input type="text" style="width: 98%" id="listHeader" placeholder="列表头部页面" name="listHeader" value="${pageCfg.listHeader}">
-                </div>
-            </div>
-        </div>
-        <div class="inline-columns-one">
-            <div class="control-group">
-                <label class="control-label" for="ucids" >UC</label>
-                <div class="controls">
-                    <%--<input type="text" style="width: 98%" id="ucids" placeholder="请选择UC" name="ucids" value="${pageCfg.ucIds}">--%>
-                    <select id="ucids" name="ucids" multiple="true">
-
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="inline-columns-one">
-            <div class="control-group">
-                <label class="control-label" for="page" >页面</label>
-                <div class="controls">
-                    <input type="text" style="width: 98%" id="page" placeholder="页面" name="page" value="${pageCfg.page}">
-                </div>
-            </div>
-        </div>
-        <div class="inline-columns-one">
-            <div class="control-group">
-                <label class="control-label" for="params" >参数</label>
-                <div class="controls">
-                    <input type="text"  style="width: 98%" id="params" placeholder="参数" name="params" value='${pageCfg.params}'>
-                </div>
-            </div>
-        </div>
-    </form>
+<div class="pop_modal_body add_page_style">
+<div class="container-fluid">
+	<div class="row-fluid">
+	    <form id="addPageForm">
+            <input type="hidden" id="id" name="id"  value="${pageCfg.id}">
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">编码 :</label>
+				<input class="span4 m-wrap" type="text" id="pcode" name="pcode" style="margin-left: 10px;" value="${pageCfg.pcode}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">模块 :</label>
+				<input class="span4 m-wrap" type="text" id="module" name="module" style="margin-left: 10px;" value="${pageCfg.module}" required/>
+			</div>
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">中文名称 :</label>
+				<input class="span4 m-wrap" type="text" id="cname" name="cname" style="margin-left: 10px;" value="${pageCfg.cname}" required/>
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">英文名称 :</label>
+				<input class="span4 m-wrap" type="text" id="cname" name="cname" style="margin-left: 10px;" value="${pageCfg.cname}" required/>
+			</div>
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">头部页面 :</label>
+				<div class="span10 m-wrap" style="margin-left: 10px;padding-right:20px;">
+					<input type="text" id="listHeader" name="listHeader" style="width:100%;" value="${pageCfg.listHeader}" required/>
+				</div>
+			</div>
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">UC :</label>
+				<div class="span10 m-wrap" style="margin-left: 10px;">
+					<select id="ucids" name="ucids" style="width: 100%" multiple="true" required>
+					</select>
+				</div>
+			</div>
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">页面 :</label>
+				<div class="span10 m-wrap" style="margin-left: 10px;padding-right:20px;">
+					<input type="text" id="page" name="page" style="width:100%;" value="${pageCfg.page}" required/>
+				</div>
+			</div>
+   			<div class="control-group controls-row">
+				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">参数 :</label>
+				<div class="span10 m-wrap" style="margin-left: 10px;padding-right:20px;">
+					<input type="text" id="params" name="params" style="width:100%;" value='${pageCfg.params}' required/>
+				</div>
+			</div>
+	    </form>
+	</div>
+</div>
 </div>
 <div class="modal-footer" >
     <button class="btn" onclick="PoupWindows.close()">取消</button>
@@ -91,7 +69,7 @@
     }
 
     $(function(){
-        $.request("UC_QUERY_UCS",{"pageflag":0},function(result){
+         $.request("UC_QUERY_UCS",{"pageflag":0},function(result){
             if(result['data'] && result['data']['rows']){
                 datas = result['data']['rows'];
                 $("#ucids").dictSel({data: datas, text: 'ucName', value: 'id',defvalue:""});
@@ -102,13 +80,10 @@
                 if(ucIds)  _ucIds = ucIds.split(",");
                 $("#ucids").select2("val",_ucIds);
             }
-        });
+        }); 
     });
 </script>
 <style>
-    #s2id_ucids{
-        width: 98%;
-    }
 
 </style>
 
