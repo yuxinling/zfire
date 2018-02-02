@@ -39,7 +39,7 @@
 		       </div>
 		       <div class="control-group controls-row">
 		        	<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">SQL语句 :</label>
-       	            <div class="span10 m-wrap" style="margin-left: 10px;padding-right:20px;">
+       	            <div class="span10 m-wrap" style="margin-left: 10px;padding-right:40px;">
 		                <textarea rows="10" style="width: 100%" name="csql" id="csql">${ucslqCfg.csql}</textarea>
          			</div>
 		       </div>

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--<tiles:putAttribute name="header" value="/WEB-INF/jsp/frame/header_uc.jsp" />--%>
 <%--<tiles:insertAttribute name="header" />--%>
+<div id="listlayout-div">
 <div class="container-fluid">
 	<%-- header start --%>
       	<c:if test="${not empty pageCfg.listHeader}" >
@@ -51,8 +52,8 @@
 		    </c:if>
 
 			<c:set var="rows" value="${data['data']}"/>
-		    <div id="page—${pageCfg.id}" class="widget-content nopadding">
-		        <table id="table-${pageCfg.id}" class="table table-bordered table-striped">
+		    <div id="page_${pageCfg.id}" class="widget-content nopadding">
+		        <table id="table_${pageCfg.id}" class="table table-bordered table-striped">
 		            <thead>
 		            <tr>
 		            <%--title start--%>
@@ -155,17 +156,19 @@
 		</div>
 	</c:if>
 </div> 
+</div>
 
 <script type="text/javascript">
     //分页处理
     $(function () {
-    	$("#table-${pageCfg.id}").dataTable({
+    	$("#table_${pageCfg.id}").dataTable({
     		"bJQueryUI": false,
     		"sPaginationType": "full_numbers",
     		"searching": false,
     		"sDom": '<""l>t<"F"fp>',
     		"bLengthChange": false, //显示每页大小的下拉框（显示一个每页长度的选择条（需要分页器支持））
     		"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // 定义每页显示数据数量
+    		"iDisplayLength" : 20, //默认显示的记录数  
     		"oLanguage": {
     			"sLengthMenu": "每页显示 _MENU_ 条记录",
     			"sZeroRecords": "抱歉， 没有找到",
@@ -180,6 +183,12 @@
     			}
     		}
     	});
+    	
+        //滚动条查件
+        /* $(function()
+        {
+            $('.scroll-pane').jScrollPane();
+        }); */
     }); 
 </script>
 

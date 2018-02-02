@@ -7,9 +7,6 @@
 <head>
     <title>zfire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    
-    
     <script src="/resources/js/vender/zfire.js"></script> 
 </head>
 <body>
@@ -25,7 +22,7 @@
         <div id="content-header">
 			<div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
 		</div>
-		<div id="main-content-html">
+		<div id="main-content-html" style="overflow-y: auto; overflow-x:auto;">
 			<tiles:insertAttribute name="main" flush="true"/>		
 		</div>
 	</div>
@@ -41,7 +38,6 @@
 		<div style="width: 100%;height:300px;background: white;clear: right;"></div>
 		<div style="width: 100%;height:300px;background: green;"></div>
 		<div style="width: 100%;height:300px;background: blue;"></div> 
-	
 	</div>
 	<div style="clear: both"></div>
 -->	
@@ -50,7 +46,8 @@
 	//初始化相关元素高度
 	function init(){
 	    $("body").height($(window).height()-80);
-	    //$("#main-content").height($(window).height()-60);
+	    $("#main-content").height($(window).height()-60);
+	    $("#main-content-html").height($(window).height()-88);
 	    //$("#sidebar").height($(window).height()-50);
 	}
 	

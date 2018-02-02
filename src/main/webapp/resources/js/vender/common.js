@@ -12,12 +12,11 @@ function reloadListData(page, params) {
         var c_params = pageConfig[page]["c_params"];
         if(c_params)data["c_params"] = c_params;
     }
-
-    var $pagediv = $("#page" + page);
-    var $loadMask = loadMask("page" + page);
+    var $pagediv = $("#page_" + page);
+    var $loadMask = loadMask("page_" + page);
     $pagediv.append($loadMask);
 
-    var $listlayoutdiv = $pagediv.parent("div");
+    var $listlayoutdiv = $pagediv.closest("#listlayout-div");
     var url = "/page.do";
     $.ajax({
         type: "POST",
@@ -114,6 +113,7 @@ function loadMask(id){
         var position = $domElement.css("position");
         var _position = "absolute";
         if(position == "absolute") top = 0;
+        if(position == "static") _position = "fixed";
         if(position == "fixed") _position = "fixed";
         $mask.css({'top':top,'width':width,'height':height,'position':_position});
         $domElement.append($mask);
