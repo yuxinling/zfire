@@ -49,6 +49,8 @@
               frameType: 0
               function: function
               scriptFunction: addRow
+              btnStyle: btn-success
+              btnIcon: icon-plus
               enableKey: {}
 
         rowOperations:
@@ -56,8 +58,10 @@
               style: style
               url: url
               frameType: 0
-              function: UC_DELETE_UC
-              scriptFunction: scriptFunction
+              function: UC_DELETE_UCCFG
+              scriptFunction: deleteRow
+              btnStyle: btn-danger
+              btnIcon: icon-trash
               enableKey: {deleteflag: 1}
 # ---------------------------------------------------------
       - id: uccvscfglist
@@ -82,8 +86,8 @@
               style: style
               url: url
               frameType: 0
-              function: UC_DELETE_UC
-              scriptFunction: scriptFunction
+              function: UC_DELETE_CVSCFG
+              scriptFunction: deleteRow
               enableKey: {deleteflag: 1}
 
 # ---------------------------------------------------------
@@ -109,8 +113,8 @@
               style: style
               url: url
               frameType: 0
-              function: UC_DELETE_UC
-              scriptFunction: scriptFunction
+              function: UC_DELETE_VIEWCFG
+              scriptFunction: deleteRow
               enableKey: {deleteflag: 1}
 
 # ---------------------------------------------------------
@@ -151,3 +155,30 @@
               function: UC_DELETE_UC
               scriptFunction: scriptFunction
               enableKey: {deleteflag: 1}
+# ---------------------------------------------------------
+      - id: orgzlist
+        title: 组织机构列表
+        function: function
+        mainClass: class
+        enableSelect: 1
+        multiSelect: 1
+        pk: ['id']
+        pkType: ['s']
+
+        headerOperations:
+            - text: 删除
+              url: page=00000012
+              frameType: 0
+              function: function
+              scriptFunction: deleteRow
+              btnStyle: btn-danger
+              btnIcon: icon-trash
+              enableKey: {}
+            - text: 添加
+              url: page=00000016
+              frameType: 0
+              function: function
+              scriptFunction: addRow
+              btnStyle: btn-success
+              btnIcon: icon-plus
+              enableKey: {}

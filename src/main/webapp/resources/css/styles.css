@@ -33,3 +33,7 @@
 .loading_mask > img{
     margin-top:-16px;
 }
+
+a {
+	color: #0088cc;
+}

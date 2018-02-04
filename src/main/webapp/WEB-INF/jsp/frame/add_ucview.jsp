@@ -112,7 +112,6 @@ $(function(){
     $("#hrefType").dictSel({data: [], defvalue: '${viewCfg.hrefType}'});
     $("#dataType").dictSel({data: $.dict("0003"),text: 'dvalue', value: 'dkey', defvalue: '${viewCfg.dataType}'});
 
-
 });
 </script>
 <style>

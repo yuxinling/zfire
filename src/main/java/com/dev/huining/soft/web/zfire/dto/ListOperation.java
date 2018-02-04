@@ -12,8 +12,12 @@ public class ListOperation {
 	private String style;
 	private String url;
 	private String frameType;
-	private String scriptFunction;
+	private String scriptFunction; //js 方法名称
 	private String function;
+	
+	private String btnStyle; //表頭按鈕 樣式
+	private String btnIcon;  //表頭按鈕icon
+	
 	private Map<String, String> enableKey;
 
 	public String getText() {
@@ -71,4 +75,22 @@ public class ListOperation {
 	public void setFrameType(String frameType) {
 		this.frameType = frameType;
 	}
+
+	public String getBtnStyle() {
+		return btnStyle;
+	}
+
+	public void setBtnStyle(String btnStyle) {
+		this.btnStyle = btnStyle;
+	}
+
+	public String getBtnIcon() {
+		return btnIcon;
+	}
+
+	public void setBtnIcon(String btnIcon) {
+		this.btnIcon = btnIcon;
+	}
+	
+	
 }

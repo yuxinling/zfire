@@ -9,6 +9,7 @@ import com.dev.huining.soft.web.zfire.pojo.entity.*;
 import com.dev.huining.soft.web.zfire.utils.BeanUtils;
 import com.dev.huining.soft.web.zfire.utils.CommonUtils;
 import com.dev.huining.soft.web.zfire.utils.JsonUtils;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +27,7 @@ import java.util.Map;
  * Time: 上午12:21
  */
 @Service
+@SuppressWarnings({"unchecked","rawtypes"})
 public class FunctionService {
 	@Resource
 	private HibernateBaseDAO hdao;
@@ -40,7 +43,6 @@ public class FunctionService {
 		SysUccfg ucCfg = new SysUccfg();
 
 		BeanUtils.fillBeanValue(paramMaps, ucCfg);
-//		BeanUtils.fillBeanValue(params, ucCfg);
 		if (StringUtils.isBlank(ucCfg.getId())) {
 			ucCfg.setId(CommonUtils.uuid());
 		}
@@ -51,9 +53,24 @@ public class FunctionService {
 		return result;
 	}
 
-    public void deleteUccfg(Parameter parameter) {
-		String id = (String) parameter.getProperty("ucid");
-		hdao.deleteByKey(SysUccfg.class, id);
+    public Result deleteUccfg(Parameter params) {
+    	Result result = new Result();
+    	
+		String data = (String) params.getProperty("data");
+		Map paramMaps = JsonUtils.parseJSONObj(data, Map.class);
+		String id = (String) paramMaps.get("id");
+		
+		if(StringUtils.isNotBlank(id)){
+			List<SysViewcfg> views = hdao.find("from SysViewcfg v where v.ucId = ?",new String[]{id});
+			if(views != null) hdao.deleteAll(views);
+			
+			List<SysCvscfg> cvss = hdao.find("from SysCvscfg c where c.ucId = ?",new String[]{id});
+			if(cvss != null)hdao.deleteAll(cvss);
+			
+			hdao.deleteByKey(SysUccfg.class, id);
+		}
+		
+		return result;
 	}
 
     public Result updateUccfg(Parameter params){
@@ -141,9 +158,18 @@ public class FunctionService {
 
 		return result;
 	}
-	public void deleteCvscfg(Parameter parameter) {
-		String id = (String) parameter.getProperty("cvsid");
-		hdao.deleteByKey(SysCvscfg.class, id);
+	
+	public Result deleteCvscfg(Parameter params) {
+		Result result = new Result();
+		String data = (String) params.getProperty("data");
+		Map paramMaps = JsonUtils.parseJSONObj(data, Map.class);
+		String id = (String) paramMaps.get("id");
+		if(StringUtils.isNotBlank(id)){
+			List<SysViewcfg> views = hdao.find("from SysViewcfg v where v.cvsId = ?",new String[]{id});
+			if(views != null) hdao.deleteAll(views);
+			hdao.deleteByKey(SysCvscfg.class, id);
+		}
+		return result;
 	}
 
 	public void updateCvscfg(Parameter parameter) {
@@ -173,9 +199,16 @@ public class FunctionService {
 		hdao.saveOrUpdate(viewcfg);
 		return result;
 	}
-	public void deleteViewcfg(Parameter parameter){
-		String id = (String) parameter.getProperty("viewid");
-		hdao.deleteByKey(SysViewcfg.class, id);
+	
+	public Result deleteViewcfg(Parameter params){
+		Result result = new Result();
+		String data = (String) params.getProperty("data");
+		Map paramMaps = JsonUtils.parseJSONObj(data, Map.class);
+		String id = (String) paramMaps.get("id");
+		if(StringUtils.isNotBlank(id)){
+			hdao.deleteByKey(SysViewcfg.class, id);
+		}
+		return result;
 	}
 
 	public Result updateViewcfg(Parameter parameter) {

@@ -47,7 +47,7 @@
 	function init(){
 	    $("body").height($(window).height()-80);
 	    $("#main-content").height($(window).height()-60);
-	    $("#main-content-html").height($(window).height()-88);
+	    $("#main-content-html").height($(window).height()-90);
 	    //$("#sidebar").height($(window).height()-50);
 	}
 	

@@ -20,7 +20,7 @@
 				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">中文名称 :</label>
 				<input class="span4 m-wrap" type="text" id="cname" name="cname" style="margin-left: 10px;" value="${pageCfg.cname}" required/>
 				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">英文名称 :</label>
-				<input class="span4 m-wrap" type="text" id="cname" name="cname" style="margin-left: 10px;" value="${pageCfg.cname}" required/>
+				<input class="span4 m-wrap" type="text" id="ename" name="ename" style="margin-left: 10px;" value="${pageCfg.cname}" required/>
 			</div>
    			<div class="control-group controls-row">
 				<label class="span2 m-wrap" style="text-align: right;padding-top: 6px;">头部页面 :</label>

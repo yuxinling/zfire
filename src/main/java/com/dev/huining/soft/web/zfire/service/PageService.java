@@ -9,11 +9,13 @@ import com.dev.huining.soft.web.zfire.pojo.entity.SysPageUc;
 import com.dev.huining.soft.web.zfire.utils.BeanUtils;
 import com.dev.huining.soft.web.zfire.utils.CommonUtils;
 import com.dev.huining.soft.web.zfire.utils.JsonUtils;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +26,7 @@ import java.util.Map;
  */
 @Service
 public class PageService {
+	@SuppressWarnings("rawtypes")
 	@Resource
 	private HibernateBaseDAO hdao;
 	@Resource

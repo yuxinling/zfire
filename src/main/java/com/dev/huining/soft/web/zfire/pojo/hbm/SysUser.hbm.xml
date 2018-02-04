@@ -33,8 +33,8 @@
                 <comment>&#202;&#199;&#183;&#241;&#198;&#244;&#211;&#195;</comment>
             </column>
         </property>
-        <property name="orgzId" type="string">
-            <column name="orgz_id" length="32">
+        <property name="orgzCode" type="string">
+            <column name="orgz_code" length="6">
                 <comment>&#215;&#233;&#214;&#175;&#187;&#250;&#185;&#185;Id</comment>
             </column>
         </property>

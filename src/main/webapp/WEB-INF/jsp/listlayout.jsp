@@ -34,10 +34,13 @@
 					<div class="widget-title" style="padding-right:8px;">
 						<span class="icon"> <i class="icon-align-justify"></i></span>
 						<h5>${listconfig.title}</h5>
-				        <%-- <c:forEach items="${listconfig.headerOperations}" var="item" varStatus="status" >
-				            <input class="btn" type="button" value="${item.text}" onclick="${item.scriptFunction}(${status.index},'${listconfig.id}')">
-				        </c:forEach> --%>
+				        <c:forEach items="${listconfig.headerOperations}" var="item" varStatus="status" >
+					        <button class="btn ${item.btnStyle}" style="padding:4px 8px;margin:3px 0px;float:right;" onclick="${item.scriptFunction}(${status.index},'${listconfig.id}')">
+					        	<span class="${item.btnIcon}" style="padding-right:4px;"></span>${item.text}
+					        </button>
+				        </c:forEach> 
 				        
+				        <%-- 
 				        <button class="btn btn-info" style="padding:4px 8px;margin:3px 0px;float:right;">
 				        	<span class="icon-pencil" style="padding-right:4px;"></span>编辑
 				        </button>
@@ -47,6 +50,7 @@
 				        <button class="btn btn-success" style="padding:4px 8px;margin:3px 0px;float:right;">
 				        	<span class="icon-plus" style="padding-right:4px;"></span>添加
 				        </button>
+				        --%>
 					</div>
 		        </c:if>
 		    </c:if>
@@ -79,14 +83,14 @@
 		                <c:if test="${not empty listconfig.rowOperations}">
 		                    <td>
 		                        <c:forEach items="${listconfig.rowOperations}" var="option">
-		                            <a href='javascript:deleteRow("${listconfig.id}",${item});'>${option.text}</a>
+		                            <a href='javascript:deleteRow("${pageCfg.id}","${listconfig.id}","${option.function}",${item});'>${option.text}</a>
 		                        </c:forEach>
 		                    </td>
 		                </c:if>
 		
 		                <c:forEach items="${viewcfg}" var="title">
 		                    <c:if test="${title.level == '1'}">
-		                        <td nowrap='nowrap'>
+		                        <td nowrap='nowrap' style="text-align: ${title.align};">
 		                        <c:choose>
 		                            <c:when test="${fn:length(title.href) > 0}">
 		                                <span><a href='#'onclick='javascript:openHyperLink("${title.href}","${title.hrefType}",${item})'>${item[title.property]}</a></span>

@@ -15,12 +15,14 @@ import com.dev.huining.soft.web.zfire.pojo.entity.SysSqlcfg;
 import com.dev.huining.soft.web.zfire.pojo.entity.SysViewcfg;
 import com.dev.huining.soft.web.zfire.utils.CommonUtils;
 import com.dev.huining.soft.web.zfire.utils.JsonUtils;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -175,9 +177,18 @@ public class CommonService {
 		return querySQLCtx;
 	}
 
+	/**
+	 * 1、将数据库RowSet转换成显示的 property - value
+	 * 2、数据显示的格式化（日期，数字、字典）
+	 * @param fieldRows 数据库查询出来的Rowset
+	 * @param viewcfgs uc配置中的view
+	 * @param cvscfgMap uc配置中的cvs
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	private List<IRow> propertyValue(List<Map<String, Object>> fieldRows,
-													   List<ViewCfg> viewcfgs,
-													   Map<String, SysCvscfg> cvscfgMap) {
+									 List<ViewCfg> viewcfgs,
+									 Map<String, SysCvscfg> cvscfgMap) {
 
 		List<IRow> propertyValueMaps = new ArrayList<IRow>();
 
@@ -186,6 +197,15 @@ public class CommonService {
 			for (SysViewcfg viewcfg : viewcfgs) {
 				SysCvscfg cvscfg = cvscfgMap.get(viewcfg.getCvsId());
 				Object value = fieldValueMap.get(cvscfg.getField());
+				
+				//字典
+				String dictNoKey = viewcfg.getDictNo();
+				if(StringUtils.isNotBlank(dictNoKey) && value != null){
+					SysDict dict = cache.getCacheDict(dictNoKey, String.valueOf(value));
+					if(dict != null)value = dict.getDvalue();
+				}
+				
+				
 				propertyValueMap.put(cvscfg.getProperty(), value);
 			}
 			propertyValueMaps.add(propertyValueMap);
@@ -220,7 +240,7 @@ public class CommonService {
 		Result result = new Result();
 		String dictno = (String) params.getProperty("dictno");
 		if(StringUtils.isNotBlank(dictno)){
-			if(dictno.trim().length() == 4) dictno = "ZFIRE" + dictno.trim();
+			if(dictno.trim().length() == 4) /*dictno = "ZFIRE" + */dictno.trim();
 			List<SysDict> dicts = cache.getCacheDicts(dictno);
 			result.setResult("dicts", dicts);
 		}

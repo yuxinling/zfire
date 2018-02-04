@@ -13,7 +13,7 @@ public class SysUser implements java.io.Serializable {
 	private String cname;
 	private Integer isuse;
 	private Integer iscan;
-	private String orgzId;
+	private String orgzCode;
 	private Integer delFlag;
 
 	public SysUser() {
@@ -24,14 +24,14 @@ public class SysUser implements java.io.Serializable {
 	}
 
 	public SysUser(String id, String username, String password, String cname,
-			Integer isuse, Integer iscan, String orgzId, Integer delFlag) {
+			Integer isuse, Integer iscan, String orgzCode, Integer delFlag) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.cname = cname;
 		this.isuse = isuse;
 		this.iscan = iscan;
-		this.orgzId = orgzId;
+		this.orgzCode = orgzCode;
 		this.delFlag = delFlag;
 	}
 
@@ -83,12 +83,12 @@ public class SysUser implements java.io.Serializable {
 		this.iscan = iscan;
 	}
 
-	public String getOrgzId() {
-		return this.orgzId;
+	public String getOrgzCode() {
+		return this.orgzCode;
 	}
 
-	public void setOrgzId(String orgzId) {
-		this.orgzId = orgzId;
+	public void setOrgzCode(String orgzCode) {
+		this.orgzCode = orgzCode;
 	}
 
 	public Integer getDelFlag() {

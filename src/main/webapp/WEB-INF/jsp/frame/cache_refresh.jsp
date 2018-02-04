@@ -37,7 +37,7 @@
         <div class="control-group">
             <label class="control-label"></label>
             <div class="controls">
-                <input class="btn" type="button" value="刷新" onclick='reloadCache()'>
+                <input class="btn btn-primary" type="button" value="刷新" onclick='reloadCache()'>
             </div>
         </div>
     </div>

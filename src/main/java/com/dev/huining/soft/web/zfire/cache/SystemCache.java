@@ -328,7 +328,7 @@ public class SystemCache {
 
 		List<SysDict> dicts = dictService.queryDicts();
 		for (SysDict dict : dicts) {
-			String dictNoKey = dict.getSys().trim() + dict.getDictno().trim();
+			String dictNoKey = /*dict.getSys().trim() + */dict.getDictno().trim();
 			List<SysDict> cacheDicts = dictCachMap.get(dictNoKey);
 			if (cacheDicts == null) {
 				cacheDicts = new ArrayList<SysDict>();

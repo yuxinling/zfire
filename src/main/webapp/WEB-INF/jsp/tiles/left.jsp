@@ -27,7 +27,10 @@
             <li><a class="menu_a" link="00000001"><i class="icon icon-caret-right"></i>UC 配置</a></li>
             <li><a class="menu_a" link="00000007"><i class="icon icon-caret-right"></i>Page 管理</a></li>
             <li><a class="menu_a" link="00000011"><i class="icon icon-caret-right"></i>Layout 管理</a></li>
-            <li><a class="menu_a" link="form-wizard.html"><i class="icon icon-caret-right"></i>刷新缓存</a></li>
+            <li><a class="menu_a" href="javascript:loadPage('/frame/page.do?view=cache_refresh')"><i class="icon icon-caret-right"></i>刷新缓存</a></li>
+            <li><a class="menu_a" link="00000015"><i class="icon icon-caret-right"></i>组织机构</a></li>
+            <li><a class="menu_a" link="00000017"><i class="icon icon-caret-right"></i>数据字典</a></li>
+            <li><a class="menu_a" link="00000018"><i class="icon icon-caret-right"></i>用户列表</a></li>
         </ul>
     </li>
 </ul>

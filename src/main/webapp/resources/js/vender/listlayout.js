@@ -83,26 +83,31 @@ function openHyperLink(url,type,params){
  * @param listid
  * @param params
  */
-function deleteRow(listid,params){
+function deleteRow(pageid,listid,uc,row){
     var listconfig = pageConfig[listid]['listconfig'];
     var pk = listconfig.pk;
     var pkType = listconfig.pkType;
     var pkValue = [];
 
     for(var i = 0; i < pk.length ; i++){
-        var value = params[pk[i]];
+        var value = row[pk[i]];
         if(value) pkValue.push(value);
         else pkValue.push("");
     }
-
+    
     var data = {};
-    data["pk"] = pk;
-    data["pkType"] = pkType;
-    data["pkValue"] = pkValue;
+    if(pk.length == 1){
+    	data[pk[0]] = pkValue[0];
+    	data["type"] = pkType[0];
+    }else{
+    	data["pk"] = pk;
+    	data["pkType"] = pkType;
+    	data["pkValue"] = pkValue;
+    }
 
-//        $.request("UC_DELETE_PAGE",{"data":JSON.stringify(data)},function(result){
-    alert("ok");
-//        });
+    $.request(uc,{"data":JSON.stringify(data)},function(result){
+    	reloadListData(pageid, {});
+    });
 }
 
 /**

@@ -11,14 +11,14 @@
         <property name="oname" type="string">
             <column name="oname" length="30" />
         </property>
+        <property name="code" type="string">
+            <column name="code" length="6" />
+        </property>
         <property name="remark" type="string">
             <column name="remark" length="200" />
         </property>
-        <property name="enable" type="java.lang.Character">
-            <column name="enable" length="1" />
-        </property>
-        <property name="porgzId" type="string">
-            <column name="porgzId" length="32" />
+        <property name="enable" type="java.lang.Integer">
+            <column name="enable" />
         </property>
     </class>
 </hibernate-mapping>

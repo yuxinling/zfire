@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	 $(document).on("click",".menu_a",function(){//修改成这样的写法  
-		showPageView($(this).attr('link'));
+		if($(this).attr('link')){
+			showPageView($(this).attr('link'));
+		}
 		//$("#iframe-main").attr("src", $(this).attr('link'));
 		$(".menu_a").parent('li').removeClass('active');
 		$(this).parent('li').addClass('active');
