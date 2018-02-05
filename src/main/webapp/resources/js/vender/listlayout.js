@@ -10,7 +10,7 @@
  * @param totalRow 总共记录数
  * @param pageRow 每页记录数
  */
-function doPagination(page, pageNumber,totalRow,pageRow) {
+function doPagination(page, pageNumber, totalRow, pageRow) {
     var params = {};
     params["totalrow"] = totalRow;
     params["pagerow"] = pageRow;

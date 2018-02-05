@@ -106,63 +106,70 @@
 		            </c:forEach>
 		            <%--data end--%>
 		        </table>
-		    </div>
-		    <%--pagination start--%>
-		    <c:if test="${rows.pageFlag == 1}">
-		        <c:set var="totalRow" value="${rows.total}"/>
-		        <c:set var="pageRow" value="${rows.rowCount}"/>
-		        <c:set var="pageNumber" value="${rows.pageNum}"/>
-		        <%-- <c:set var="pageCount" value="${rows.pageCount}"/> --%>
-		        <c:set var="pageCount" value="7"/>
-<!--  
--->
-				<div class="dataTables_wrapper no-footer">
-					<div class="dataTables_paginate paging_full_numbers">
-						<a class='paginate_button first <c:if test="${pageNumber <= 1 }"> disabled </c:if>'>首页</a> 
-						<a class='paginate_button previous <c:if test="${pageNumber <= 1 }"> disabled </c:if>'>前一页</a>
-						<span>
-<%-- 							<c:if test="${pageCount <= 7 }">
-								<c:forEach var="index" begin="1" end="${pageCount}" step="1">   
-									<a class='paginate_button <c:if test="${pageNumber eq index }"> current</c:if> '>${index}</a>
-								</c:forEach> 
-							</c:if> --%>
-							<c:choose>
-							    <c:when test="${pageCount <= 7 }">  
-									<c:forEach var="index" begin="1" end="${pageCount}" step="1">   
-										<a class='paginate_button <c:if test="${pageNumber eq index }"> current</c:if> '>${index}</a>
-									</c:forEach> 
-							    </c:when>
-							    <c:otherwise> 
-									<a class="paginate_button ">1</a>
-	   								<c:if test="${pageNumber <= 4 }">
-										<c:forEach var="index" begin="1" end="${pageCount}" step="1">   
-											<a class='paginate_button <c:if test="${pageNumber eq index }"> current</c:if> '>${index}</a>
-										</c:forEach> 
-										<a class="paginate_button ">5</a>
-									</c:if>
-									<a class="paginate_button">${pageCount}</a>
-							   </c:otherwise>
-							</c:choose>
-							
-							
-							<a class="paginate_button ">1</a>
-							<span class="ellipsis">…</span>
-							<a class="paginate_button disabled ">4</a>
-							<a class="paginate_button current">5</a>
-							<a class="paginate_button ">6</a>
-							<span class="ellipsis">…</span>
-							<a class="paginate_button ">20</a>
+			    <%--pagination start--%>
+			    <c:if test="${rows.pageFlag == 1}">
+			        <c:set var="totalRow" value="${rows.total}"/>
+			        <c:set var="pageRow" value="${rows.rowCount}"/>
+			        <c:set var="pageNumber" value="${rows.pageNum}"/>
+			        <c:set var="pageCount" value="${rows.pageCount}"/>
+			        <%-- 
+			        <c:set var="pageCount" value="12"/>
+			        <c:set var="pageNumber" value="8"/>
+			         --%>
+					<div class="dataTables_wrapper no-footer">
+						<span style="margin-left: 20px;margin-top: 10px;position: absolute;">
+						显示第 ${(pageNumber - 1)*pageRow + 1} 至 <c:choose><c:when test="${pageNumber*pageRow >= totalRow}">${totalRow}</c:when><c:otherwise>${pageNumber*pageRow}</c:otherwise></c:choose> 项结果，共 ${totalRow}项
 						</span>
-						<a class='paginate_button next <c:if test="${pageNumber >= pageCount }"> disabled </c:if>'>后一页</a>
-						<a class='paginate_button last <c:if test="${pageNumber >= pageCount }"> disabled </c:if>'>尾页</a>
+						<div class="dataTables_paginate paging_full_numbers">
+							<a class='paginate_button first <c:if test="${pageNumber <= 1 }"> disabled </c:if>'>首页</a> 
+							<a class='paginate_button previous <c:if test="${pageNumber <= 1 }"> disabled </c:if>'>前一页</a>
+							<span>
+								<c:choose>
+								    <c:when test="${pageCount <= 7 }">  
+										<c:forEach var="index" begin="1" end="${pageCount}" step="1">   
+											<a class='paginate_button <c:if test="${pageNumber == index }"> current</c:if> '>${index}</a>
+										</c:forEach> 
+								    </c:when>
+								    <c:otherwise> 
+								    	<c:if test="${pageNumber >= 5 }">
+											<a class="paginate_button ">1</a>
+											<span class="ellipsis">…</span>
+								    	</c:if>
+										<c:choose>
+										    <c:when test="${pageNumber <= 4}">
+												<a class='paginate_button <c:if test="${pageNumber == 1}">current </c:if>'>1</a>
+												<a class='paginate_button <c:if test="${pageNumber == 2}">current </c:if>'>2</a>
+												<a class='paginate_button <c:if test="${pageNumber == 3}">current </c:if>'>3</a>
+												<a class='paginate_button <c:if test="${pageNumber == 4}">current </c:if>'>4</a>
+												<a class='paginate_button'>5</a>
+										    </c:when>  
+										    <c:when test="${pageNumber > 4 && pageNumber <= pageCount - 4}">
+												<a class="paginate_button">${pageNumber-1}</a>
+												<a class='paginate_button current'>${pageNumber}</a>
+												<a class="paginate_button">${pageNumber+1}</a>
+										    </c:when>
+										    <c:otherwise>  
+												<a class='paginate_button <c:if test="${pageNumber == pageCount - 4}">current </c:if>'>${pageCount - 4}</a>
+												<a class='paginate_button <c:if test="${pageNumber == pageCount - 3}">current </c:if>'>${pageCount - 3}</a>
+												<a class='paginate_button <c:if test="${pageNumber == pageCount - 2}">current </c:if>'>${pageCount - 2}</a>
+												<a class='paginate_button <c:if test="${pageNumber == pageCount - 1}">current </c:if>'>${pageCount - 1}</a>
+												<a class='paginate_button'>${pageCount}</a>
+										    </c:otherwise>  
+										</c:choose>
+								    	<c:if test="${pageNumber <= pageCount - 4}">
+											<span class="ellipsis">…</span>
+											<a class="paginate_button">${pageCount}</a>
+								    	</c:if> 
+								   </c:otherwise>
+								</c:choose>
+							</span>
+							<a class='paginate_button next <c:if test="${pageNumber - pageCount >= 0 }"> disabled </c:if>'>后一页</a>
+							<a class='paginate_button last <c:if test="${pageNumber - pageCount >= 0}"> disabled </c:if>'>尾页</a>
+						</div>
 					</div>
-				</div>
-		    </c:if>
-		    
- 
-
-
+			    </c:if>
 				<%--pagination end--%>
+		    </div>
 		</div>
 	</c:if>
 </div> 
@@ -171,30 +178,38 @@
 <script type="text/javascript">
     //分页处理
  $(function () {
-/*       
-     	$("#table_${pageCfg.id}").dataTable({
-    		"bJQueryUI": false,
-    		"sPaginationType": "full_numbers",
-    		"searching": false,
-    		"sDom": '<""l>t<"F"fp>',
-    		"bLengthChange": false, //显示每页大小的下拉框（显示一个每页长度的选择条（需要分页器支持））
-    		"aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // 定义每页显示数据数量
-    		"iDisplayLength" : 10, //默认显示的记录数
-    		"oLanguage": {
-    			"sLengthMenu": "每页显示 _MENU_ 条记录",
-    			"sZeroRecords": "抱歉， 没有找到",
-    			"sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
-    			"sInfoEmpty": "没有数据",
-    			"sInfoFiltered": "(从 _MAX_ 条数据中检索)",
-    			"oPaginate": {
-    			"sFirst": "首页",
-    			"sPrevious": "前一页",
-    			"sNext": "后一页",
-    			"sLast": "尾页"
-    			}
-    		}
-    	});  
-     	*/
+     var pageFlag = "${rows.pageFlag}";
+     var pageid = "${pageCfg.id}";
+
+     if (pageFlag == 1) {
+         var pageNumber = "${pageNumber}";
+         var totalRow = "${totalRow}";
+         var pageRow = "${pageRow}";
+         var pageCount = "${pageCount}";
+
+         pageNumber = parseInt(pageNumber);
+         var pageCount = "${pageCount}";
+         var $pageitems = $("#page_${pageCfg.id} .dataTables_paginate").find("a");
+         $pageitems.each(function (index, item) {
+             var $item = $(item);
+             if(!$item.hasClass('disabled')){
+		         console.log($item.html());
+	             var text = $item.html();
+	             if (isNaN(text)) {
+	            	 if($item.hasClass('first')){
+	            		 text = 0;
+	            	 }else if($item.hasClass('previous')){
+	            		 text = pageNumber - 1;
+	            	 }else if($item.hasClass('next')){
+	            		 text = pageNumber + 1;
+	            	 }else if($item.hasClass('last')){
+	            		 text = pageCount;
+	            	 }
+	             }
+            	 $item.attr("onclick", "javascript:doPagination('" + pageid + "','" + text + "','" + totalRow + "','" + pageRow + "')");
+             }
+         });
+     }
     	
         //滚动条查件
         /* $(function()
@@ -203,6 +218,3 @@
         }); */
     }); 
 </script>
-
-<style>
-</style>
