@@ -16,6 +16,7 @@ public class SysMenu implements java.io.Serializable {
 	private String pid;
 	private String params;
 	private Integer refreshFlag;
+	private Integer sort;
 
 	public SysMenu() {
 	}
@@ -26,7 +27,7 @@ public class SysMenu implements java.io.Serializable {
 
 	public SysMenu(String id, String sys, String code, String name,
 			String type, String hreflink, String pid, String params,
-			Integer refreshFlag) {
+			Integer refreshFlag,Integer sort) {
 		this.id = id;
 		this.sys = sys;
 		this.code = code;
@@ -36,6 +37,7 @@ public class SysMenu implements java.io.Serializable {
 		this.pid = pid;
 		this.params = params;
 		this.refreshFlag = refreshFlag;
+		this.sort = sort;
 	}
 
 	public String getId() {
@@ -109,5 +111,15 @@ public class SysMenu implements java.io.Serializable {
 	public void setRefreshFlag(Integer refreshFlag) {
 		this.refreshFlag = refreshFlag;
 	}
+
+	public Integer getSort() {
+		return sort;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	
+	
 
 }

@@ -182,3 +182,31 @@
               btnStyle: btn-success
               btnIcon: icon-plus
               enableKey: {}
+              
+# ---------------------------------------------------------
+      - id: menulist
+        title: 菜单列表
+        function: function
+        mainClass: class
+        enableSelect: 1
+        multiSelect: 1
+        pk: ['id']
+        pkType: ['s']
+
+        headerOperations:
+            - text: 删除
+              url: page=00000012
+              frameType: 0
+              function: function
+              scriptFunction: deleteRow
+              btnStyle: btn-danger
+              btnIcon: icon-trash
+              enableKey: {}
+            - text: 添加
+              url: page=00000019
+              frameType: 0
+              function: function
+              scriptFunction: addRow
+              btnStyle: btn-success
+              btnIcon: icon-plus
+              enableKey: {}

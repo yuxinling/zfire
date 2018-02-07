@@ -4,7 +4,7 @@
     min-width: 560px;
     width: auto;
     max-width: 794px;
-    position: absolute;
+    /* position: absolute; */
     background: none repeat scroll 0 0 #F9F9F9;
 }
 
@@ -36,4 +36,18 @@
 
 a {
 	color: #0088cc;
+}
+
+ul.ztree {
+	margin-top: 10px;
+	border: 1px solid #617775;
+	background: #f0f6e4;
+	width: 220px;
+	height: 360px;
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+ul.line {
+	height: auto;
 }

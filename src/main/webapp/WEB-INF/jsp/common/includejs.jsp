@@ -24,6 +24,8 @@
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/tree-table/jquery.treetable.css"/>');
 	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/css/tree-table/jquery.treetable.theme.default.css"/>');
 
+	document.writeln('<link rel="stylesheet" type="text/css" href="/resources/js/lib/ztree/style/ztree.style.css"/>');
+	
     <%--document.writeln('<script type="text/javascript" src="/resources/js/lib/bootstrap.min.js"><\/script>');--%>
     document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery-1.8.1.js"/><\/script>');
     document.writeln('<script type="text/javascript" src="/resources/js/lib/bootstrap.js"><\/script>');
@@ -36,4 +38,5 @@
     document.writeln('<script type="text/javascript" src="/resources/js/lib/select2/select2.js"><\/script>');
 
     document.writeln('<script type="text/javascript" src="/resources/js/lib/jquery.treetable.js"><\/script>');
+    document.writeln('<script type="text/javascript" src="/resources/js/lib/ztree/jquery.ztree.core.js"><\/script>');
 </script>

@@ -31,6 +31,7 @@
             <li><a class="menu_a" link="00000015"><i class="icon icon-caret-right"></i>组织机构</a></li>
             <li><a class="menu_a" link="00000017"><i class="icon icon-caret-right"></i>数据字典</a></li>
             <li><a class="menu_a" link="00000018"><i class="icon icon-caret-right"></i>用户列表</a></li>
+            <li><a class="menu_a" link="00000020"><i class="icon icon-caret-right"></i>菜单列表</a></li>
         </ul>
     </li>
 </ul>

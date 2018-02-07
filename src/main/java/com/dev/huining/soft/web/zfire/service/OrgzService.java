@@ -21,6 +21,7 @@ import com.dev.huining.soft.web.zfire.utils.CommonUtils;
 import com.dev.huining.soft.web.zfire.utils.JsonUtils;
 
 @Service
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class OrgzService {
 	
 	@Resource
@@ -29,7 +30,7 @@ public class OrgzService {
 	@Resource
 	private CommonService commonService;
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
+	
 	public Result addOrgz(Parameter parameter) {
 		Result result = new Result();
 		String data = (String) parameter.getProperty("data");
@@ -53,7 +54,6 @@ public class OrgzService {
 		return result;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public void updateOrgz(Parameter parameter) {
 		String id = (String) parameter.getProperty("orgzId");
 		SysOrgz orgz = (SysOrgz) hdao.get(SysOrgz.class, id);
@@ -63,7 +63,6 @@ public class OrgzService {
 
 	}
 	
-	@SuppressWarnings("unchecked")
 	public Result queryOrgzTree(Parameter parameter){
 		parameter.setProperty("pageflag", 0);
 		Result result = commonService.query(parameter);
@@ -97,7 +96,6 @@ public class OrgzService {
 				}
 			}
 		}
-		
 		
 		return result;
 	}
