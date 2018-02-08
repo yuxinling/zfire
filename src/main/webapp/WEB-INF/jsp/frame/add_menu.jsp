@@ -39,7 +39,7 @@
         </div>
     </form>
 <div id="menuTreeDiv" class="menuTreeDiv" style="display:none; position: fixed;">
-	<ul id="menuTree" class="ztree" style="margin-top:0; width:160px;"></ul>
+	<ul id="menuTree" class="ztree" style="margin-top:0; width:100%;"></ul>
 </div>
 </div>
 <div class="modal-footer" >
@@ -58,11 +58,11 @@ function save(){
 
 var setting = { 
         data: {  
-            simpleData: {  
+            /* simpleData: {  
                 enable: true,   //设置是否使用简单数据模式(Array)  
                 idKey: "id",    //设置节点唯一标识属性名称  
                 pIdKey: "pid"      //设置父节点唯一标识属性名称  
-            },  
+            }, */  
             key: {  
                 name: "name",//zTree 节点数据保存节点名称的属性名称  
                 title: "name"//zTree 节点数据保存节点提示信息的属性名称        
@@ -102,9 +102,10 @@ function onClick(e, treeId, treeNode) {
 }
 
 function showMenu() {
-	var cityObj = $("#pMenu");
-	var cityOffset = $("#pMenu").offset();
-	$("#menuTreeDiv").css({left:cityOffset.left + "px", top:cityOffset.top + cityObj.outerHeight() + "px"}).slideDown("fast");
+	var $pmenu = $("#pMenu");
+	var offset = $pmenu.offset();
+	var width = $pmenu.width() + 2;
+	$("#menuTreeDiv").css({left:offset.left + "px", top:offset.top + $pmenu.outerHeight() + "px", width: width + "px"}).slideDown("fast");
 	$("body").bind("mousedown", onBodyDown);
 }
 function hideMenu() {
@@ -119,8 +120,8 @@ function onBodyDown(event) {
 
 $(function() {
 	$.request("UC_QUERY_MENUS", {"pageflag" : 0 }, function(result) {
-		if (result['data'] && result['data']['rows']) {
-			datas = result['data']['rows'];
+		if (result['data']) {
+			datas = result['data'];
 			$.fn.zTree.init($("#menuTree"), setting, datas);
 		}
 	});

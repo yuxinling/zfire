@@ -1,6 +1,5 @@
 package com.dev.huining.soft.web.zfire.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,10 +9,11 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.dev.huining.soft.web.zfire.commons.SystemHelper;
 import com.dev.huining.soft.web.zfire.dao.HibernateBaseDAO;
 import com.dev.huining.soft.web.zfire.dto.Parameter;
 import com.dev.huining.soft.web.zfire.dto.Result;
-import com.dev.huining.soft.web.zfire.dto.base.IRow;
+import com.dev.huining.soft.web.zfire.dto.TreeNode;
 import com.dev.huining.soft.web.zfire.dto.base.IRowSet;
 import com.dev.huining.soft.web.zfire.pojo.entity.SysOrgz;
 import com.dev.huining.soft.web.zfire.utils.BeanUtils;
@@ -68,39 +68,13 @@ public class OrgzService {
 		Result result = commonService.query(parameter);
 		
 		IRowSet rowSet = (IRowSet) result.getData();
-		Map<String,IRow> rowMaps = new HashMap<String,IRow>();
 		if(rowSet != null){
-			List<IRow> irows = rowSet.getRows();
-			if(irows != null){
-				for (IRow row : irows) {
-					String code = (String) row.get("code");
-					row.put("nodeId", code);
-					row.put("style", "file");
-					
-					if(code == null) row.put("pnodeId", "000000");
-					rowMaps.put(code, row);
-					
-					if("000000".equals(code)) continue;
-					if(code.endsWith("0000")){
-						rowMaps.get("000000").put("style", "folder");
-						row.put("pnodeId", "000000");
-					}else if(code.endsWith("00")){
-						String pnodeId = code.subSequence(0, 2)+"0000";
-						rowMaps.get(pnodeId).put("style", "folder");
-						row.put("pnodeId", code.subSequence(0, 2)+"0000");
-					}else{
-						String pnodeId = code.subSequence(0, 4)+"00";
-						rowMaps.get(pnodeId).put("style", "folder");
-						row.put("pnodeId", pnodeId);
-					}
-				}
-			}
+			List<TreeNode> nodes = SystemHelper.buildTree(rowSet.getRows(), "code", 3);
+			System.out.println(JsonUtils.formatJSONObj(nodes));
+			result.setData(nodes);
 		}
 		
 		return result;
 	}
-	
-
-	
 
 }

@@ -43,7 +43,7 @@
 		        </c:if>
 		    </c:if>
 
-			<c:set var="rows" value="${data['data']}" scope="request"/>
+			<c:set var="rows" value="${data['data']}"/>
 		    <div id="page_${pageCfg.id}" class="widget-content nopadding">
 		        <table id="table_${pageCfg.id}" class="table table-bordered table-striped">
 		            <thead>
@@ -55,11 +55,38 @@
 		                    <th nowrap='nowrap'>${item.title}</th>
 		                </c:if>
 		            </c:forEach>
+	                    <th nowrap='nowrap'>---</th>
 		            <%--title end--%>
 		            </tr>
 		            </thead>
 		            <%--data start--%>
-		            <c:import url="table_tr.jsp" />
+		            <c:forEach items="${rows}" var="item">
+		            <tr data-tt-id='${item["nodeId"]}' <c:if test='${not empty item["pnodeId"]}'>data-tt-parent-id='${item["pnodeId"]}' </c:if>>
+		                <c:if test="${not empty listconfig.rowOperations}">
+		                    <td>
+		                        <c:forEach items="${listconfig.rowOperations}" var="option">
+		                            <a href='javascript:deleteRow("${listconfig.id}",${item});'>${option.text}</a>
+		                        </c:forEach>
+		                    </td>
+		                </c:if>
+		
+		                <c:forEach items="${viewcfg}" var="title" varStatus="status">
+		                    <c:if test="${title.level == '1'}">
+		                        <td nowrap='nowrap'>
+		                        <c:choose>
+		                            <c:when test="${fn:length(title.href) > 0}">
+		                                <span><a href='#'onclick='javascript:openHyperLink("${title.href}","${title.hrefType}",${item})'>${item[title.property]}</a></span>
+		                            </c:when>
+		                            <c:otherwise>
+		                                <span <c:if  test="${status.index == 0}">class='${item["style"]}' </c:if> >${item[title.property]}</span>
+		                            </c:otherwise>
+		                        </c:choose>
+		                        </td>
+		                    </c:if>
+		                </c:forEach>
+		                <td>${item["pid"] }</td>
+		         	  </tr>	
+		            </c:forEach>
 		            <%--data end--%>
 		        </table>
 		    </div>

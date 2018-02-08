@@ -4,6 +4,8 @@ import com.dev.huining.soft.web.zfire.cache.SystemCache;
 import com.dev.huining.soft.web.zfire.dto.ListConfig;
 import com.dev.huining.soft.web.zfire.dto.Parameter;
 import com.dev.huining.soft.web.zfire.dto.Result;
+import com.dev.huining.soft.web.zfire.dto.TreeNode;
+import com.dev.huining.soft.web.zfire.dto.base.IRow;
 import com.dev.huining.soft.web.zfire.dto.configuration.ListConfigurationYaml;
 import com.dev.huining.soft.web.zfire.dto.configuration.ModuleConfigurationYaml;
 import com.dev.huining.soft.web.zfire.dto.configuration.ParamConfigurationYaml;
@@ -12,12 +14,16 @@ import com.dev.huining.soft.web.zfire.pojo.entity.SysUccfg;
 import com.dev.huining.soft.web.zfire.utils.ConstantUtils;
 import com.dev.huining.soft.web.zfire.utils.JsonUtils;
 import com.dev.huining.soft.web.zfire.utils.SpringBeanLocator;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -138,6 +144,108 @@ public class SystemHelper {
 		if(strs.length >= 3) return strs[strs.length - 2];
 		return "";
 	}
+	
+	
+	public static List<TreeNode> buildTree(List<IRow> rows,String key,String pkey){
+		List<TreeNode> nodes = new ArrayList<TreeNode>();
+		Map<String,TreeNode> nodeMaps = new HashMap<String,TreeNode>();
+		if(rows == null) return null;
+		List<IRow> irow = new ArrayList<IRow>();
+		for(IRow row : rows){
+			String id = (String) row.get(key);
+			String pid = (String) row.get(pkey);
+			if(StringUtils.isBlank(pid)){
+				TreeNode node = new TreeNode(row);
+				nodes.add(node);
+				nodeMaps.put(id, node);
+			}else{
+				irow.add(row);
+			}
+			
+		}
+		
+		tree(irow,nodeMaps,key,pkey);
+		
+		return nodes;
+	}
+	
+	
+	public static List<TreeNode> buildTree(List<IRow> rows,String logicCodeKey, int level){
+		List<TreeNode> nodes = new ArrayList<TreeNode>();
+		Map<String,TreeNode> codeMaps = new HashMap<String,TreeNode>();
+		if(rows == null) return null;
+		List<IRow> irow = new ArrayList<IRow>();
+		String logic = genLogicCode(level);
+		for(IRow row : rows){
+			String code = (String) row.get(logicCodeKey);
+			if(logic.equals(code)){
+				TreeNode node = new TreeNode(row);
+				nodes.add(node);
+				codeMaps.put(code, node);
+			}else{
+				irow.add(row);
+			}
+			
+		}
+		
+		tree(irow,codeMaps,logicCodeKey,--level);
+		
+		return nodes;
+	}
+	
+	private static String genLogicCode(int level) {
+		StringBuilder code = new StringBuilder("");
+		for (int i = level * 2; i > 0; i--) {
+			code.append("0");
+
+		}
+
+		return code.toString();
+	}
+	
+	private static void tree(List<IRow> rows, Map<String,TreeNode> nodeMaps,String key,String pkey){
+		if(rows == null || rows.size() == 0) return ;
+		List<IRow> irow = new ArrayList<IRow>();
+		for(IRow row : rows){
+			String id = (String) row.get(key);
+			String pid = (String) row.get(pkey);
+			TreeNode pnode = nodeMaps.get(pid);
+			if(pnode != null){
+				TreeNode node = new TreeNode(row);
+				pnode.addChildren(node);
+				nodeMaps.put(id, node);
+			}else {
+				irow.add(row);
+			}
+		}
+		
+		tree(irow,nodeMaps,key,pkey);
+	}
+
+	private static void tree(List<IRow> rows, Map<String, TreeNode> nodeMaps, String logicCodeKey, int level) {
+		if (rows == null || rows.size() == 0)
+			return;
+		List<IRow> irow = new ArrayList<IRow>();
+		String logic = genLogicCode(level);
+		String replace = genLogicCode(level + 1);
+		for (IRow row : rows) {
+			String code = (String) row.get(logicCodeKey);
+			if (level > 0 && !code.endsWith(logic)) {
+				irow.add(row);
+			} else {
+				TreeNode node = new TreeNode(row);
+
+				StringBuilder _code = new StringBuilder(code);
+				_code.replace(code.length() - replace.length(), code.length(), replace);
+				TreeNode pnode = nodeMaps.get(_code.toString());
+				pnode.addChildren(node);
+				nodeMaps.put(code, node);
+			}
+		}
+
+		tree(irow, nodeMaps, logicCodeKey, --level);
+	}
+	
 
 	public static void main(String[] args) {
 //		new SystemHelper();

@@ -10,9 +10,11 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import com.dev.huining.soft.web.zfire.commons.SystemHelper;
 import com.dev.huining.soft.web.zfire.dao.HibernateBaseDAO;
 import com.dev.huining.soft.web.zfire.dto.Parameter;
 import com.dev.huining.soft.web.zfire.dto.Result;
+import com.dev.huining.soft.web.zfire.dto.TreeNode;
 import com.dev.huining.soft.web.zfire.dto.base.IRow;
 import com.dev.huining.soft.web.zfire.dto.base.IRowSet;
 import com.dev.huining.soft.web.zfire.pojo.entity.SysMenu;
@@ -51,6 +53,21 @@ public class MenuService {
 		}
 		
 		hdao.save(menu);
+		
+		return result;
+	}
+	
+	
+	public Result queryMenuTree(Parameter parameter){
+		parameter.setProperty("pageflag", 0);
+		Result result = commonService.query(parameter);
+		
+		IRowSet rowSet = (IRowSet) result.getData();
+		if(rowSet != null){
+			List<TreeNode> nodes = SystemHelper.buildTree(rowSet.getRows(), "id", "pid");
+			System.out.println(JsonUtils.formatJSONObj(nodes));
+			result.setData(nodes);
+		}
 		
 		return result;
 	}

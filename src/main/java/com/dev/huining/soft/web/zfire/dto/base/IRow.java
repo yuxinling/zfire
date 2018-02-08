@@ -9,6 +9,7 @@ import java.util.HashMap;
  * Date: 13-9-26
  * Time: 上午12:23
  */
+@SuppressWarnings({ "unchecked", "rawtypes", "serial" })
 public class IRow extends HashMap {
 	@Override
 	public String toString() {
