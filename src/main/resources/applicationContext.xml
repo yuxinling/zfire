@@ -21,9 +21,9 @@
     <!-- 数据源的配置 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/zfire"/>
-        <property name="user" value="root"/>
-        <property name="password" value="root"/>
+        <property name="jdbcUrl" value="jdbc:mysql://111.231.89.210:3306/zfire"/>
+        <property name="user" value="zfire"/>
+        <property name="password" value="zfire@@123"/>
     </bean>
 
     <!-- hibernate的sessionFactory的配置 -->
